@@ -1,22 +1,37 @@
-﻿import java.util.ArrayList;
-import java.util.List;
-
-class Battler {
+﻿public class Battler {
     private String name;
-    public int hp;
-    public int power;
+    private int health;
+    private int power;
 
-    public Battler(String name, int hp, int power) {
+    // Constructeur pour initialiser un combattant avec un nom, des points de vie et de la puissance
+    public Battler(String name, int health, int power) {
         this.name = name;
-        this.hp = hp;
+        this.health = health;
         this.power = power;
     }
 
-    public void attack(Battler opponent) {
-        opponent.looseHP(power);
+    // Méthode pour obtenir le nom du combattant
+    public String getName() {
+        return name;
     }
 
-    public void looseHP(int amount) {
-        this.hp -= amount;
+    // Méthode pour obtenir les points de vie du combattant
+    public int getHp() {
+        return health;
+    }
+
+    // Méthode pour obtenir la puissance du combattant
+    public int getPower() {
+        return power;
+    }
+
+    // Méthode pour infliger des dégâts au combattant
+    public void takeDamage(int damage) {
+        health -= damage;
+    }
+
+    // Méthode pour vérifier si le combattant est vivant
+    public boolean isAlive() {
+        return health > 0;
     }
 }
